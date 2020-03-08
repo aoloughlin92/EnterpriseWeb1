@@ -1,0 +1,42 @@
+<section class="ui raised segment">
+    <div class="ui grid ">
+        <div class="ui form six wide column">
+            <div class="ui stacked segment">
+                <h3 class="uk-card-title">Image Upload</h3>
+                <form class="uk-form-horizontal" action="/create" method="POST" enctype="multipart/form-data">
+                    <div class="field" name="name">
+                        <label>Name:</label>
+                        <input type="text" name="name" placeholder="POI Name">
+                    </div>
+                    <div class="field" name="description">
+                        <label>Description:</label>
+                        <input type="text" name="description" placeholder="Enter Description">
+                    </div>
+                    <div class="grouped inline fields">
+                        <h3> Select Category </h3>
+                        {{#each categories }}
+                            <div class="field">
+                                <div class="ui radio checkbox">
+                                    <input type="radio" name="category" value="{{name}}">
+                                    <label>{{name}}</label>
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
+                    <div class="uk-margin">
+                        <label class="uk-form-label" for="form-horizontal-text">Select Image</label>
+                        <div class="uk-form-controls">
+                            <input type="file" class="uk-input" name="imagefile" accept="image/png, image/jpeg">
+                        </div>
+                    </div>
+                    <p uk-margin>
+                        <input type="submit" value="Upload" class="uk-button uk-button-default">
+                    </p>
+                </form>
+            </div>
+        </div>
+        <aside class="six wide column">
+            <img src="images/images.jpg" class="ui medium image">
+        </aside>
+    </div>
+</section>

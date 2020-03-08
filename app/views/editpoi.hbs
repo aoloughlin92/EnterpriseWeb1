@@ -1,0 +1,64 @@
+{{> mainmenu _id="home" }}
+
+<section class="ui raised segment">
+    <div class="ui grid">
+        <div class="ui ten wide column">
+            <div class="ui stacked fluid form segment">
+                <form action="/editPOI/{{poi._id}}" method="POST">
+                    <h3 class="ui header">Update</h3>
+                    <div class="two fields">
+                        <div class="field">
+                            <label>Name</label> <input value="{{poi.name}}" type="text" name="name">
+                        </div>
+                        <div class="field">
+                            <label>Description</label> <input value="{{poi.description}}" type="text" name="description">
+                        </div>
+                    </div>
+                    <div class="grouped inline fields">
+                        <h3> Select Category </h3>
+                        {{#each categories }}
+                            <div class="field">
+                                <div class="ui radio checkbox">
+                                    <input type="radio"  name="category" value="{{name}}">
+                                    <label>{{name}}</label>
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
+                    <button class="ui blue submit button">Save</button>
+                </form>
+                {{> error }}
+            </div>
+        </div>
+
+    </div>
+</section>
+{{#each images}}
+    <div>
+        <div class="uk-card uk-card-default uk-card-small uk-text-center uk-text-baseline uk-animation-scale-up">
+            <div class="uk-card-media-top">
+                <img src="{{url}}">
+                <a href="/deleteimage/{{../poi._id}}/{{public_id}}"  class="ui icon button"> <i class="icon trash"></i></a>
+            </div>
+        </div>
+    </div>
+{{/each}}
+<div class="uk-card uk-card-primary uk-card-body">
+    <h3 class="uk-card-title">Image Upload</h3>
+    <form class="uk-form-horizontal" action="/uploadImage/{{poi._id}}" method="POST" enctype="multipart/form-data">
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-horizontal-text">Select Image</label>
+            <div class="uk-form-controls">
+                <input type="file" class="uk-input" name="imagefile" accept="image/png, image/jpeg">
+            </div>
+        </div>
+        <p uk-margin>
+            <input type="submit" value="Upload" class="uk-button uk-button-default">
+        </p>
+    </form>
+</div>
+
+
+<script>
+    $('input[value="{{poi.category.name}}"]'). attr("checked", "checked");
+</script>

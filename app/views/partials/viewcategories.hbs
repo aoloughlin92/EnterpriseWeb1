@@ -1,0 +1,20 @@
+<section class="ui raised segment">
+    <div class="ui grid">
+            <table class="ui celled table segment">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>View</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each categories}}
+                    <tr>
+                        <td> {{name}} </td>
+                        <td><a href="/viewCategory/{{_id}}"  class="ui icon button"> <i class="icon folder open"></i></a></td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+    </div>
+</section>

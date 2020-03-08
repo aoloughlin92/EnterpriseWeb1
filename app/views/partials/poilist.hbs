@@ -1,0 +1,30 @@
+<section class="ui raised segment">
+    <div class="ui grid">
+
+            <table class="ui celled table segment">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>Creator</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each pois}}
+                    <tr>
+                        <td> {{name}} </td>
+                        <td> {{category.name}} </td>
+                        <td> {{description}}</td>
+                        <td> {{creator.firstName}} {{creator.lastName}}</td>
+                        <td><a href="/editPOI/{{_id}}"  class="ui icon button"> <i class="icon edit"></i></a></td>
+                        <td><a href="/deletePOI/{{_id}}"  class="ui icon button"> <i class="icon trash"></i></a></td></td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+
+    </div>
+</section>
