@@ -3,7 +3,7 @@
 const Accounts = require('./app/controllers/accounts');
 const POIs = require('./app/controllers/pois');
 const Admins = require('./app/controllers/admins');
-const Categories = require('./app/controllers/Categories');
+const Categories = require('./app/controllers/categories');
 
 module.exports = [
     { method: 'GET', path: '/', config: Accounts.index },
